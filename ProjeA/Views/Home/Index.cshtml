@@ -13,7 +13,12 @@
                     <h4 class="modal-title">Giriş Ekranı</h4>
                 </div>
                 <form>
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <p>@ViewBag.ErrorMessage</p>
+                    }
                     <div class="modal-body ">
+
                         <div class="form-group">
                             @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label" })
                             @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
@@ -29,6 +34,9 @@
                         @Html.ActionLink(" Şifremi Unuttum", "Forget", "Home", new { @class = "btn btn-block btn-secondary fa-key" })
 
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -38,7 +46,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Giriş Ekranı</h4>
+                <h4 class="modal-title">Uumlu Cihazlar</h4>
             </div>
             <form>
                 <div class="modal-body ">
@@ -174,6 +182,15 @@
 </div>
 <section class="section section-sm bg-default">
     <div class="container">
+
+        @*@if (ViewBag.ErrorMessage != null)
+        {
+            // Show error message in a pop-up box
+            <script type="text/javascript">
+                alert("Giriş bilgileriniz yanlış. Lütfen tekrar deneyin.");
+            </script>
+        }*@
+
         <div class="row row-30 row-xl-24 justify-content-center align-items-center align-items-lg-start text-left">
             <div class="col-md-6 col-lg-5 col-xl-4 text-center">
                 <a class="text-img" href="#">
@@ -200,7 +217,7 @@
                     <div class="col-9 col-sm-6">
                         <div class="counter-amy">
                             <div class="counter-amy-number">
-                                <span class="counter">40</span>
+                                <span class="counter">47</span>
                             </div>
                             <h6 class="counter-amy-title">Kobi</h6>
                         </div>
@@ -208,7 +225,7 @@
                     <div class="col-9 col-sm-6">
                         <div class="counter-amy">
                             <div class="counter-amy-number">
-                                <span class="counter">3000</span>
+                                <span class="counter">3159</span>
                             </div>
                             <h6 class="counter-amy-title">Bireysel</h6>
                         </div>
@@ -387,45 +404,4 @@
     </div>
 </section>
 
-<!-- Contact Form-->
-<section class="section section-sm section-last bg-default text-left" id="contacts">
-    <div class="container">
-        <article class="title-classic">
-            <div class="title-classic-title">
-                <h3>Teknik Destek</h3>
-            </div>
-            <div class="title-classic-text">
-                <p>İnteraktif, uygulamaya gerek kalmadan, yer kaplamadan, tek tuşla, ara-mesaj at yada rehbere ekle, sosyal medyadan takipleş, email at, websitene yönlendir ve çok daha fazlası MyVisit’de.</p>
-            </div>
-        </article>
-        <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-            <div class="row row-14 gutters-14">
-                <div class="col-md-4">
-                    <div class="form-wrap">
-                        <input class="form-input" id="contact-your-name-2" type="text" name="name">
-                        <label class="form-label" for="contact-your-name-2">Your Name</label>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-wrap">
-                        <input class="form-input" id="contact-email-2" type="email" name="email">
-                        <label class="form-label" for="contact-email-2">E-mail</label>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-wrap">
-                        <input class="form-input" id="contact-phone-2" type="text" name="phone">
-                        <label class="form-label" for="contact-phone-2">Phone</label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-wrap">
-                        <label class="form-label" for="contact-message-2">Message</label>
-                        <textarea class="form-input textarea-lg" id="contact-message-2" name="message"></textarea>
-                    </div>
-                </div>
-            </div>
-            <button class="button button-primary button-pipaluk" type="submit">Gönder</button>
-        </form>
-    </div>
-</section>
+

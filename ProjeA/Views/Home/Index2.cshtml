@@ -4,31 +4,225 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>    @User.Identity.Name</h2>
-<h1>aaaaaaaaaaaaaaa</h1>
-<h1>aaaaaaaaaaaaaaa</h1>
 
 
-@*<section class="section section-sm section-first bg-default text-center" id="services">
-        <div class="container">
-            <div class="row row-30 justify-content-center">
-                <div class="col-md-7 col-lg-5 col-xl-6 text-lg-left wow fadeInUp">
-                    <img src="~/Content/image/gorsel3.png" alt="" width="415" height="592" />
+<section class="section section-sm bg-default">
+    <div class="container">
+        <div class="row row-30 row-xl-24 justify-content-center align-items-center align-items-lg-start text-left">
+            <div class="col-md-6 col-lg-5 col-xl-4 text-center">
+                <a class="text-img" href="#">
+                    <div id="particles-js"></div><span class="counter">21 .</span>
+                </a>
+            </div>
+            <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                <div class="text-width-extra-small offset-top-lg-24 wow fadeInUp">
+                    <h3 class="title-decoration-lines-left">. Yüzyılın teknolojisi</h3>
+                    <p class="text-gray-500">Tasarımlarıyla birlikte tamamen size özel olarak tasarlanan MyVisit’inizi birinin telefonuna dokundurun ve paylaşmak istediğiniz bilgilerinizi paylaşın.</p><a class="button button-secondary button-pipaluk" href="#">Sipariş Ver</a>
                 </div>
-                <div class="col-lg-7 col-xl-6">
-                    <div class="row row-30">
-                        <h2 class="wow fadeInLeft">SİZE ÖZEL QR KODLA KOLAY ERİŞİM</h2>
-                        <p>
-                            MyVisit ile ; <br>
-                            Hızlı bir şekilde bilgilerinizi aktarabilirsiniz,<br>
-                            Sadece istediğiniz bilgileri güvenli bir şekilde paylaşabilirsiniz ,<br>
-                            Tasarımlarıyla her alana uyum sağlayabilirsiniz,<br>
-                            Boşuna kağıt israfı yapmadan tek kartla işinizi en kolay şekilde halledebilirsiniz.
-                        </p>
+            </div>
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay=".1s">
+                <div class="row justify-content-center border-2-column offset-top-xl-26">
+
+                    <div class="col-9 col-sm-6">
+                        <div class="counter-amy">
+                            <div class="counter-amy-number">
+                                <span class="counter">15</span>
+                            </div>
+                            <h6 class="counter-amy-title">Şirket</h6>
+                        </div>
+                    </div>
+                    <div class="col-9 col-sm-6">
+                        <div class="counter-amy">
+                            <div class="counter-amy-number">
+                                <span class="counter">40</span>
+                            </div>
+                            <h6 class="counter-amy-title">Kobi</h6>
+                        </div>
+                    </div>
+                    <div class="col-9 col-sm-6">
+                        <div class="counter-amy">
+                            <div class="counter-amy-number">
+                                <span class="counter">3000</span>
+                            </div>
+                            <h6 class="counter-amy-title">Bireysel</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- See all services-->
+<section class="section section-sm section-first bg-default text-center" id="services">
+    <div class="container">
+        <h2 class="wow fadeInLeft">MyVisiti keşfedin</h2>
+        <p class=" wow fadeInRight">Size özel tasarlanmış qr kodlu kartvizitinizi kullanarak neler mi yapabilirsiniz ?</p>
+
+        <div class="row row-30 justify-content-center">
+            <div class="col-lg-12 col-xxl-12">
+                <div class="row row-30">
+
+                    <div class="col-sm-3 wow fadeInRight" data-wow-delay=".1s">
+                        <article class="box-icon-modern box-icon-modern-2">
+                            <div class="box-icon-modern-icon fa-solid fa-arrow-right-arrow-left"></div>
+                            <h5 class="box-icon-modern-title"><a href="#">Temassız İletişim</a></h5>
+                            <div class="box-icon-modern-decor"></div>
+                            <p class="box-icon-modern-text">Pandemi dolayısıyla hijyen ve sosyal mesafe kurallarına uygun istediğiniz iletişim bilgilerinizi dilediğiniz kişyle paylaşabilirsiniz.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-3 wow fadeInRight" data-wow-delay=".2s">
+                        <article class="box-icon-modern box-icon-modern-2">
+                            <div class="box-icon-modern-icon fa-solid fa-qrcode"></div>
+                            <h5 class="box-icon-modern-title"><a href="#">QR Kod</a></h5>
+                            <div class="box-icon-modern-decor"></div>
+                            <p class="box-icon-modern-text">Sadece qr kodunuzu okutarak MyVisit bilgilerinizi paylaşabilirsiniz.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-3 wow fadeInRight" data-wow-delay=".3s">
+                        <article class="box-icon-modern box-icon-modern-2">
+                            <div class="box-icon-modern-icon fa-solid fa-location-dot"></div>
+                            <h5 class="box-icon-modern-title"><a href="#">Konumunu Paylaş</a></h5>
+                            <div class="box-icon-modern-decor"></div>
+                            <p class="box-icon-modern-text">İşyerinizin veya paylaşmak istediğiniz yerin konumu kolayca paylaşabilirsiniz.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-3 wow fadeInRight" data-wow-delay=".3s">
+                        <article class="box-icon-modern box-icon-modern-2">
+                            <div class="box-icon-modern-icon fa-solid fa-hashtag"></div>
+                            <h5 class="box-icon-modern-title"><a href="#">Sosyal Medya</a></h5>
+                            <div class="box-icon-modern-decor"></div>
+                            <p class="box-icon-modern-text">Kişisel veya kurumsal istediğiniz sosyal medya hesaplarınızı tek tek kullanıcı adı vermekle uğraşmayıp MyVisit profilinizde paylaşabilirsiniz. Böylece hem doğru hem de hızlı bir şekilde erişim sağlayabilirsiniz.</p>
+                        </article>
                     </div>
                 </div>
             </div>
         </div>
-    </section>*@
+    </div>
+</section>
+<!-- See all services-->
+<section class="section section-sm section-first bg-default text-center" id="services">
+    <div class="container">
+        <div class="row row-30 justify-content-center">
+            <div class="col-md-7 col-lg-5 col-xl-6 text-lg-left wow fadeInUp">
+                <img src="~/Content/image/gorsel3.png" alt="" width="415" height="592" />
+            </div>
+            <div class="col-lg-7 col-xl-6">
+                <div class="row row-30">
+                    <h2 class="wow fadeInLeft">SİZE ÖZEL QR KODLA KOLAY ERİŞİM</h2>
+                    <p>
+                        MyVisit ile ; <br>
+                        Hızlı bir şekilde bilgilerinizi aktarabilirsiniz,<br>
+                        Sadece istediğiniz bilgileri güvenli bir şekilde paylaşabilirsiniz ,<br>
+                        Tasarımlarıyla her alana uyum sağlayabilirsiniz,<br>
+                        Boşuna kağıt israfı yapmadan tek kartla işinizi en kolay şekilde halledebilirsiniz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cta-->
+<!-- Latest Projects-->
+<!-- Years of experience-->
+<!-- Meet The Team-->
+<!-- You dream — we embody-->
+<!-- What people Say-->
+<!-- Pricing-->
+<section class="section section-sm section-bottom-70 section-fluid bg-default">
+    <div class="container">
+        <h2>MyVisit</h2>
+        <div class="row row-30 justify-content-center">
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="box-pricing box-pricing-black">
+                    <div class="box-pricing-body">
+                        <h5 class="box-pricing-title">Bronz Paket</h5>
+                        <h3 class="box-pricing-price">500.00</h3>
+
+
+                        <ul class="box-pricing-list">
+                            <li class="active">
+                                1 adet Kart <br /><br /><br /><br />
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="box-pricing-button"><a class="button button-lg button-block button-primary" href="#">Sipariş Ver</a></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="box-pricing box-pricing-black box-pricing-popular">
+                    <div class="box-pricing-body">
+                        <h5 class="box-pricing-title">Slver Paket</h5>
+                        <h3 class="box-pricing-price">500.00</h3>
+
+
+                        <ul class="box-pricing-list">
+                            <li class="active">
+                                1 adet Kart
+                            </li>
+                            <li class="active">
+                                1 adet Sticker Etiket
+                            </li>
+                            <li class="active">
+                                1 adet Anahtarlık
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="box-pricing-button"><a class="button button-lg button-block button-primary" href="#">Sipariş Ver  </a></div>
+                    <div class="box-pricing-badge">Popüler</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Contact information-->
+<section class="section section-sm bg-default" id="news">
+    <div class="container">
+        <div class="row row-30 justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-4">
+                <article class="box-contacts">
+                    <div class="box-contacts-body">
+                        <div class="box-contacts-icon fa-phone"></div>
+                        <div class="box-contacts-decor"></div>
+                        <p class="box-contacts-link"><a href="tel:#">0212 655 5555</a></p>
+
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-8 col-md-6 col-lg-4">
+                <article class="box-contacts">
+                    <div class="box-contacts-body">
+                        <div class="box-contacts-icon fa-home"></div>
+                        <div class="box-contacts-decor"></div>
+                        <p class="box-contacts-link"><a href="#">Maslak, Ahi Evran Cd. No:21, 34398 Sarıyer/İstanbul</a></p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-8 col-md-6 col-lg-4">
+                <article class="box-contacts">
+                    <div class="box-contacts-body">
+                        <div class="box-contacts-icon fa-solid fa-mail-bulk"></div>
+                        <div class="box-contacts-decor"></div>
+                        <p class="box-contacts-link"><a href="mailto:#">info@myvisit.com</a></p>
+
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 
 

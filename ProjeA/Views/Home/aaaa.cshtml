@@ -1,0 +1,689 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Batuhan Aral - dsfsdfsfs | Xlori - Yeni Nesil Dijital Kartvizit</title>
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="icon" href="https://xlori.com/assets/img/favicon.png">
+    <link rel="stylesheet" href="https://xlori.com/app/assets/css/custom.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+    <style>
+        .modal-container {
+            max-width: 500px;
+            padding: 0;
+            margin: 20px 0;
+            border-radius: .3em;
+            box-shadow: 0 0.1em 0.4em rgba(0,0,0,.3);
+        }
+
+        .languages {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            margin-top: 50px;
+            color: #fff;
+        }
+
+            .languages img {
+                width: 30px;
+                padding: 0px 5px;
+            }
+
+            .languages .list {
+                position: absolute;
+                background: #000;
+                transition: 300ms;
+                text-align: center;
+                border-radius: 7px;
+                transform: translate(0px, -20px);
+                opacity: 0;
+                visibility: hidden;
+                z-index: 99;
+                width: 120px;
+                top: calc(100% - -1px);
+                right: 12px;
+            }
+
+                .languages .list ul {
+                    padding: 0;
+                    list-style: none;
+                }
+
+        .list ul li {
+            display: flex;
+            justify-content: space-between;
+            height: 30px;
+            padding: 6px;
+        }
+
+        .languages:Hover .list {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 0);
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .languages .active {
+            align-items: center;
+            display: flex;
+            color: #111;
+            font-size: 14px;
+        }
+
+        .languages a {
+            color: #c5c5c5;
+            text-decoration: none;
+        }
+
+        .languages .active:hover .list {
+            display: block;
+        }
+
+        .languages .active span {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #111;
+        }
+
+            .languages .active span i {
+                padding: 7px;
+            }
+
+        a.lang {
+            color: #c7d0d1;
+            font-size: 17px;
+            text-decoration: none;
+            background: #000;
+            padding: 4px 20px;
+            display: flex;
+            align-items: center;
+            border-radius: 7px;
+            box-shadow: 2px 4px 4px 0px #848181;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+
+    <div class="container px-4 pb-3">
+        <div class="row justify-content-end languages">
+            <div class="col-lg-6" style="display:flex; justify-content:flex-end;">
+                <a href="javascript:;" class="lang"><img src=https://xlori.com/app/assets/images/tr.png>Türkçe</a>
+                <div class="list">
+                    <ul>
+                        <li><a href="https://xlori.com/app/2LIzVO?lang=TR"><img src="https://xlori.com/app/assets/images/tr.png">Türkçe</a></li>
+                        <li><a href="https://xlori.com/app/2LIzVO?lang=EN"><img src="https://xlori.com/app/assets/images/en.png">İngilizce</a></li>
+                        <li><a href="https://xlori.com/app/2LIzVO?lang=RU"><img src="https://xlori.com/app/assets/images/ru.png">Rusça</a></li>
+                        <li><a href="https://xlori.com/app/2LIzVO?lang=AR"><img src="https://xlori.com/app/assets/images/ar.png">Arapça</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        </div>
+        <div class="row my-1">
+            <div class="col-12">
+                <div class="card border-0 bg-transparent pb-0">
+                    <div class="card-body  pb-0">
+                        <div class="row">
+
+                            <div class="col-12 text-center">
+                                <img class="profile" src="https://xlori.com/upload/uyeler/634.jpeg" class="box-shadow-2" alt="" width="90" height="90" style="border-radius: 50%;object-fit: cover;">
+
+                            </div>
+                            <div class="col-12 mt-2 text-center">
+                                <h5 class="card-title text-white"><b>Batuhan Aral</b></h5>
+                                <p class="text-light">dsfsdfsfs<br />SOTEK SOĞUTMA</p>
+                                <p class="text-light">motto</p>
+                                <button class="btn btn-primary px-5" style="font-size: 14px" type="button" data-bs-toggle="modal" data-bs-target="#linkShare">
+                                    <i data-feather="share-2" stroke-width="2" width="18"></i>  Paylaş
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider mb-3" style="background-color: #d6d6d6">
+        <div class="col-12 my-1">
+
+            <a href="https://xlori.com/vcard_create.php?userCode=2LIzVO" class="link-item">
+                <div class="card border-0 px-1 py-0 box-shadow-4 card-item-full  bg-secondary" style=" box-shadow: 6px 10px 25px 0 rgba(0,0,0,0.19),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3 ">
+                                <img src="https://xlori.com/assets/img/contacts.png"
+                                     class="box-shadow-4 card-item-image" alt="" width="60">
+                            </div>
+                            <div class="col-9 px-3">
+                                <p class="mb-0 text-white" style="font-size: 18px"><b>Rehbere Ekle</b></p>
+                                <p class="text-light mb-0" style="font-size: 14px">İndirilen vCard ile beni kolayca rehberinize ekleyebilirsiniz!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <hr class="divider mb-3" style="background-color: #d6d6d6">
+        <div class="row row-cols-3 row-cols-md-3 g-4 my-2">
+            <div class="col">
+                <a href="https://www.youtube.com/" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/18.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">YouTube</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=40.77007682324887, 29.961133003234863" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/23.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Konum</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="tel:+90(543)4579738" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/11.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Ara</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=37.35009068356949, 33.91980531249999" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/23.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Konum</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=40.7729206299926, 29.949352741241455" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/23.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Konum</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="thgbfhghnfg" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/32.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">N11 </p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="hdfhfghfghf" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/37.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Zingat</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:batuhanaral333@gmail.com" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:dfsdfafsa" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:fasfasfsafafsfafasfsaf" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:fdgdf" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:drggrd" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:dffdg" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mailto:fgdgdgd" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/10.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Mail</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=39.0897765757584, 29.067969109008455" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/23.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Konum</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="lıhı" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/36.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Emlakjet</p>
+                                <p style="font-size: 11px">lhl</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://t.me/dfhfhd" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/16.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Telegram</p>
+                                <p style="font-size: 11px">gdfgdfgd</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://www.instagram.com/batuhan.afr" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/13.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Instagram</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://www.instagram.com/batuhan.afr" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/13.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Instagram</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="tel:+90(354)5464645" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/11.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">Ara</p>
+                                <p style="font-size: 11px">dffdsfsfsfsdfsdf</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="dfsdfdsfsdf" target="_blank" class="link-item">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/upload/widgets/28.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">E-Katalog</p>
+                                <p style="font-size: 11px">fdsfsdfsfsdfdsfsdfsf</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+
+                <a href="javascript:void(0)" onclick="return createQrCode({link:'https://xlori.com/app/2LIzVO'})" class="link-item" name="qr-code-outline">
+                    <div class="card border-0 px-2 py-2 box-shadow-4 card-item bg-secondary">
+                        <div class="card-body text-center">
+                            <img src="https://xlori.com/app/assets/theme1-light/img/qrcode.png"
+                                 class="box-shadow-4 card-item-image" alt="" width="45">
+                            <div class="mt-1 px-2 text-center card-item-title text-white">
+                                <p style="font-size: 12px;font-weight: bolder;margin-bottom: 0">QR Kod</p>
+                                <p style="font-size: 11px"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+        <div class="row py-5">
+            <div class="col-lg-12 text-center">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#faturabilgi">Fatura Bilgileri</button>			            <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#bankabilgi">Banka Bilgileri</button>
+            </div>
+        </div>
+
+        <div class="row pt-4">
+            <div class="col-lg-12 text-center">
+                <p style="font-size: 13px; color:white;">2022 Copyright &copy; <a href="https://www.xlori.com">Xlori</a><br /><a href="https://www.xlori.com">Sizde Xlori Sahibi Olmak İsterseniz Tıklayın!</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="linkShare" tabindex="-1" aria-labelledby="linkShareLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content bg-secondary">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Linki Paylaş</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card card-body mb-2" id="linkInfo" style="font-size: 12px">
+                        https://xlori.com/app/2LIzVO
+                    </div>
+                    <button class="btn btn-sm btn-dark copyLink" id="copyLink"
+                            onclick="return copy_data(linkInfo,'#copyLink')">
+                        Kopyala
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="faturabilgi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-secondary">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Fatura Bilgileri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-light">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0"><strong>dfsf</strong></p>
+                        </div>
+
+                        <div class="col-lg-12 my-1 mb-3">
+                            <div class="card card-body border-primary bg-secondary">
+                                <p class="mb-0"><strong>fwfewfsevergwfwef</strong></p>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="bankabilgi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-secondary">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Banka Bilgileri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-light">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0"><strong>sfdf</strong></p>
+                        </div>
+
+                        <div class="col-lg-12 my-1 mb-3">
+                            <div class="card card-body border-primary bg-secondary">
+                                <p class="mb-0"><strong>fesfs</strong></p>
+                                <p class="mb-0"><strong>sfefs</strong></p>
+                                <p class="font-weight-bolder" id="copyIban0">TR51 6515 1000 0000 0000 0000 00</p>
+                                <button class="btn btn-primary btn-xs" id="copyIbanBtn0" onclick="copy_data(copyIban0,'#copyIbanBtn')">IBAN Kopyala</button>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="qrcodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-secondary">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">QR Kod</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="qrcode" class="text-center"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="widgetDetailModal"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <!--<script src="--><!--"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="https://xlori.com/app/assets/js/jquery.qrcode.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://xlori.com/assets/common/js/ajaxProcess.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+    feather.replace()
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // $('#summernote').summernote();
+        // $('.note-editor .note-toolbar, .note-popover .popover-content').remove();
+    });
+    function copy_data(containerid,btnId) {
+        var range = document.createRange();
+        range.selectNode(containerid); //changed here
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Kopyalandı");
+
+    }
+    function createQrCode({link=null}){
+        $('div#qrcode canvas').remove();
+        $('div#qrcode').qrcode({width: 300,height: 300,text:link});
+        $('#qrcodeModal').modal('show');
+    }
+    function StripTags(input)
+    {
+        var array = [];
+        var inside = false;
+
+        for (i = 0; i < input.length; i++)
+        {
+            var let = input.charAt(i);
+            if (let == '<')
+            {
+                inside = true;
+                continue;
+            }
+            if (let == '>')
+            {
+                inside = false;
+                continue;
+            }
+            if (!inside)
+                array.push(let);
+        }
+        return array.join('');
+    }
+    // var clipboard = new ClipboardJS('.copyText');
+    // clipboard.on('success', function(e) {
+    //     console.info('Action:', e.action);
+    //     console.info('Text:',StripTags(e.text));
+    //     console.info('Trigger:', e.trigger);
+    //
+    //     e.clearSelection();
+    // });
+    //
+    // clipboard.on('error', function(e) {
+    //     console.error('Action:', e.action);
+    //     console.error('Trigger:', e.trigger);
+    // });
+    </script>
+</body>
+</html>

@@ -31,19 +31,19 @@
                                     <!-- RD Navbar Toggle-->
                                     <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                                     <!-- RD Navbar Brand-->
-                                    <div class="rd-navbar-brand "><a class="brand rd-nav-item rd-nav-link " href="index.html"><img alt="" width="223" height="50" />MyVisit</a></div>
+                                    <div class="rd-navbar-brand "><a class="brand rd-nav-item rd-nav-link " href="index.html"><img alt="" width="223" height="50" />@ViewBag.mesaj</a></div>
                                 </div>
                                 <div class="rd-navbar-main-element">
                                     <div class="rd-navbar-nav-wrap">
                                         <!-- RD Navbar Share-->
 
                                         <ul class="rd-navbar-nav">
-                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">AnaSayfa</a></li>
+                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Index2#home">AnaSayfa</a></li>
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/PasswordUpdate">Parola Değiştir</a></li>
-                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">MyVisit Düzenle</a></li>
-                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Tema Seçimi</a></li>
+                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/MyVisitEdit">MyVisit Düzenle</a></li>
+                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Contact2">İletişim</a></li>
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">İstatistik</a></li>
-
+                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Contact">Tema Seçimi</a></li>
 
                                             <li class="rd-nav-item ">@Html.ActionLink("Çıkış Yap", "Logout", "Home", null, new { @class = "w3-button w3-red w3-padding-small" })</li>
 

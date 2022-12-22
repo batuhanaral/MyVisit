@@ -1,0 +1,49 @@
+﻿@model ProjeA.Models.SocialMedia
+@{
+    ViewBag.Title = "SocialMediaAdd";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="col-md-9">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Sosyal Alan</h3>
+            </div>
+            @if (TempData["basarili"] != null)
+            {
+                <p class="alert alert-success" id="successMessage">@TempData["basarili"]</p>
+            }
+            <!-- /.card-header -->
+            <!-- form start -->
+
+            @using (Html.BeginForm("SocialMediaAdd", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SocialName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SocialName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SocialName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <input class="control-label " type="file" name="MediaLogo" value="Rapor yükleme" />
+
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Kayıt Ekle</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

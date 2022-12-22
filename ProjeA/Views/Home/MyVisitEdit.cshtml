@@ -1,0 +1,150 @@
+﻿@model ProjeA.Models.Information
+
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kişsiel Bilgileri Ekle</title>
+</head>
+<body>
+    <section class="section section-sm section-last bg-default text-left" id="contacts">
+        <div class="container">
+            @using (Html.BeginForm("MyVisitEdit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form">
+                    <h3>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</h3>
+                    <div class="col-md-9">
+                        <div class="card card-pink">
+                            <div class="card-header">
+                                <h3 class="card-title">Bilgiler</h3>
+                            </div>
+                            <form>
+                                <div class="modal-body">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-user"></i>
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Adınzı girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", placeholder = "Soyadınızı girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-phone"></i>
+                                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control", placeholder = "Telefon numaranızı giriniz" } })
+                                            @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-envelope"></i>
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email adresinizi girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control", placeholder = "Adresinizi girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Iban, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-money-bill"></i>                                            @Html.EditorFor(model => model.Iban, new { htmlAttributes = new { @class = "form-control", placeholder = "IBAN bilginizi girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Iban, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.LinkedIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-brands fa-linkedin"></i>
+                                            @Html.EditorFor(model => model.LinkedIn, new { htmlAttributes = new { @class = "form-control", placeholder = "LinkedIn adresini girin..." } })
+                                            @Html.ValidationMessageFor(model => model.LinkedIn, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-building"></i>
+                                            @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control", placeholder = "Şirketinizi girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-solid fa-brackets-curly"></i>
+                                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = " Ünvanınızı girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Instagram, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-brands fa-instagram"></i>
+                                            @Html.EditorFor(model => model.Instagram, new { htmlAttributes = new { @class = "form-control", placeholder = " Instagram Adresini giriniz..." } })
+                                            @Html.ValidationMessageFor(model => model.Instagram, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Facebook, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-brands fa-facebook"></i>
+                                            @Html.EditorFor(model => model.Facebook, new { htmlAttributes = new { @class = "form-control", placeholder = "Facebook adresinizi girin..." } })
+                                            @Html.ValidationMessageFor(model => model.Facebook, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Tiktok, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-brands fa-tiktok"></i>
+                                            @Html.EditorFor(model => model.Tiktok, new { htmlAttributes = new { @class = "form-control", placeholder = "Tiktok Adresini giriniz..." } })
+                                            @Html.ValidationMessageFor(model => model.Tiktok, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.WebSite, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <i class="fa-regular fa-globe"></i>
+                                            @Html.EditorFor(model => model.WebSite, new { htmlAttributes = new { @class = "form-control", placeholder = "Web Siteniz: hhtps//:www.myvisit.com" } })
+                                            @Html.ValidationMessageFor(model => model.WebSite, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="control-label " type="file" name="Photo" value="Fotoğraf yükleme" />
+                                    </div>
+
+                                    <button type="submit" class="button button-sm button-primary button-pipaluk">Bilgileri Ekle</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+</body>
+</html>

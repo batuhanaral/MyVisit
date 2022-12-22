@@ -74,3 +74,6 @@ C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\Microsoft.Owin.Security.xml
 C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\Newtonsoft.Json.xml
+C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.Migrations.InitialCreate.resources
+C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.csproj.GenerateResource.cache
+C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.Migrations.Initial.resources

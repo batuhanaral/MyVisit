@@ -13,6 +13,12 @@ namespace ProjeA.Models
 
         }
 
-        public DbSet<PersonelShortInfofmation> PersonelShortInfos { get; set; }
+        
+
+        public DbSet<Information> Informations { get; set; }
+        public DbSet<Contact.Foreing> Foreings { get; set; }
+        public DbSet<Contact.Member> Members { get; set; }
+        
+
     }
 }
