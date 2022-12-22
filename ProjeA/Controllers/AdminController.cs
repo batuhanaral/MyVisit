@@ -36,6 +36,7 @@ namespace ProjeA.Controllers
             var mem = context.Members.ToList();
             return View(mem);
         }
+
        
         public ActionResult Answer(string Email)
         {
@@ -58,6 +59,33 @@ namespace ProjeA.Controllers
             
         }
 
+        public ActionResult Message2()
+        {
+            DataContext context = new DataContext();
+            var foreings = context.Foreings.ToList();
+            return View(foreings);
+        }
+
+        public ActionResult Answer2(string Email)
+        {
+            ViewBag.Email = Email;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Answer2(string Email, string message)
+        {
+            DataContext db = new DataContext();
+            var foreing = new Contact.Foreing();
+            var user = db.Foreings.FirstOrDefault(x => x.Email == Email);
+            string subject = "MYVİSİT TEKNİK DESTEK";
+            string body = message;
+            WebMail.Send(Email, subject, body, null, null, null, true, null, null, null, null, null, null);
+            ViewBag.Mesaj = "Mail gönderimi başarılı";
+            user.Durum = false;
+            db.SaveChanges();
+            return RedirectToAction("Message2");
+
+        }
 
 
 

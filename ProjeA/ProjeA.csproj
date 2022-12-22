@@ -4044,6 +4044,8 @@
     <Content Include="Views\Home\Contact2.cshtml" />
     <Content Include="Views\Admin\Message.cshtml" />
     <Content Include="Views\Admin\Answer.cshtml" />
+    <Content Include="Views\Admin\Message2.cshtml" />
+    <Content Include="Views\Admin\Answer2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
