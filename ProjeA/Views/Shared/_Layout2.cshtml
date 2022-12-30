@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="~/Content/css/fonts.css">
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-   
+
 </head>
 <body>
 
@@ -31,19 +31,18 @@
                                     <!-- RD Navbar Toggle-->
                                     <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                                     <!-- RD Navbar Brand-->
-                                    <div class="rd-navbar-brand "><a class="brand rd-nav-item rd-nav-link " href="index.html"><img alt="" width="223" height="50" />@ViewBag.mesaj</a></div>
+                                    <div class="rd-navbar-brand "><a class="brand rd-nav-item rd-nav-link " href="index.html"><img alt="" width="223" height="50" src="~/LogoDepo/logo2.png" />@ViewBag.mesaj</a></div>
                                 </div>
                                 <div class="rd-navbar-main-element">
                                     <div class="rd-navbar-nav-wrap">
                                         <!-- RD Navbar Share-->
-
                                         <ul class="rd-navbar-nav">
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Index2#home">AnaSayfa</a></li>
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/PasswordUpdate">Parola Değiştir</a></li>
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/MyVisitEdit">MyVisit Düzenle</a></li>
+                                            <li class="rd-nav-item ">@Html.ActionLink("MyVisit Profilim", "aaaa", "Home", new { email = ViewBag.LayoutId }, new { @class = "w3-button w3-red w3-padding-small", target = "_blank" })</li>
                                             <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Contact2">İletişim</a></li>
-                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">İstatistik</a></li>
-                                            <li class="rd-nav-item active"><a class="rd-nav-link" href="/Home/Contact">Tema Seçimi</a></li>
+
 
                                             <li class="rd-nav-item ">@Html.ActionLink("Çıkış Yap", "Logout", "Home", null, new { @class = "w3-button w3-red w3-padding-small" })</li>
 
@@ -59,7 +58,7 @@
                 </div>
             </header>
         </div>
-        
+
 
 
 
@@ -104,11 +103,11 @@
 
 
     </div>
-        <!-- Global Mailform Output-->
-        <div class="snackbars" id="form-output-global"></div>
-        <!-- Javascript-->
-        <script src="~/Content/js/core.min.js"></script>
-        <script src="~/Content/js/script.js"></script>
-        <!-- coded by Himic-->
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="~/Content/js/core.min.js"></script>
+    <script src="~/Content/js/script.js"></script>
+    <!-- coded by Himic-->
 </body>
 </html>

@@ -77,3 +77,6 @@ C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\Newtonsoft.Json.xml
 C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.Migrations.InitialCreate.resources
 C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.csproj.GenerateResource.cache
 C:\Users\batuh\source\repos\ProjeA\ProjeA\obj\Debug\ProjeA.Migrations.Initial.resources
+C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\QRCoder.dll
+C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\QrCodeGenerator.dll
+C:\Users\batuh\source\repos\ProjeA\ProjeA\bin\QrCodeGenerator.xml

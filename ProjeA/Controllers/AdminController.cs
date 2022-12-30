@@ -10,7 +10,9 @@ using ProjeA.Models;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Web.Helpers;
-using System.Web.UI.WebControls;
+using Microsoft.Owin.Security;
+using System.Windows.Controls;
+
 
 namespace ProjeA.Controllers
 {
@@ -48,7 +50,7 @@ namespace ProjeA.Controllers
         {
             DataContext db = new DataContext();
             var member = new Contact.Member();
-            var user = db.Members.FirstOrDefault(x => x.Email == Email);
+            var user = db.Members.Where(x => x.Email == Email).ToList().LastOrDefault();
             string subject = "MYVİSİT TEKNİK DESTEK";
             string body = message;
             WebMail.Send(Email, subject, body, null, null, null, true, null, null, null, null, null, null);
@@ -76,7 +78,7 @@ namespace ProjeA.Controllers
         {
             DataContext db = new DataContext();
             var foreing = new Contact.Foreing();
-            var user = db.Foreings.FirstOrDefault(x => x.Email == Email);
+            var user = db.Foreings.Where(x => x.Email == Email).ToList().LastOrDefault(); ;
             string subject = "MYVİSİT TEKNİK DESTEK";
             string body = message;
             WebMail.Send(Email, subject, body, null, null, null, true, null, null, null, null, null, null);
@@ -86,8 +88,113 @@ namespace ProjeA.Controllers
             return RedirectToAction("Message2");
 
         }
+        [HttpGet]
+        public ActionResult AdminRemove(string id)
+        {
+            var kullanici = userManager.FindById(id);
+            if (kullanici != null)
+            {
+                userManager.Delete(kullanici);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult RegisterAdmin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegisterAdmin(Register model)
+        {
 
 
+            IdentityContext db = new IdentityContext();
+            var user = new ApplicationUser();
+            var kullanici = db.Users.Where(x => x.UserName == model.Email).ToList();
+
+
+            if (kullanici.Count() == 0)
+            {
+                user.Name = model.Name;
+                user.Surname = model.SurName;
+                user.PhoneNumber = model.PhoneNumber;
+                user.Email = model.Email;
+                user.UserName = model.Email;
+                user.MembershipStatus = true;
+                IdentityResult result = userManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+
+                    //kullanıcı oluşunca role atıyoruz!!!
+
+
+                    userManager.AddToRole(user.Id, "admin");
+
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterUserError", "Kullanıcı oluşturma hatası");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Bu Email kullanılmaktadır ");
+            }
+
+            return View();
+        }
+
+        public ActionResult YoneticiGiris()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult YoneticiGiris(Login model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = userManager.Find(model.UserName, model.Password);
+                if (user != null)
+                {
+                    if (userManager.IsInRole(user.Id, "admin"))
+                    {
+                        var authManager = HttpContext.GetOwinContext().Authentication;// kullanıcı girdi çıktılarını yönetmek için
+                        var identityclaims = userManager.CreateIdentity(user, "ApplicationCookie"); // kullanıcı için cookie oluşturmak için
+                        var authProperties = new AuthenticationProperties();
+                        authProperties.IsPersistent = model.RememberMe;//hatırlamak için
+                        authManager.SignOut();
+                        authManager.SignIn(authProperties, identityclaims);
+                        return RedirectToAction("Index", "Admin");
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Giriş bilgilerinizi kontrol ediniz...");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Giriş bilgilerinizi kontrol ediniz...");
+                }
+
+
+            }
+            return View(model);
+        }
+        public ActionResult Logout()
+        {
+
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            authManager.SignOut();
+            return RedirectToAction("Index", "Home");
+
+        }
 
     }
+
 }

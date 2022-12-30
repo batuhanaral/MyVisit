@@ -12,13 +12,22 @@ using Microsoft.Owin.Security;
 using System.Reflection;
 using System.IO;
 using System.Net;
+using static System.Net.WebRequestMethods;
+using static QRCoder.PayloadGenerator;
+using QRCoder;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Net.NetworkInformation;
+using System.Reflection.Emit;
+
 
 namespace ProjeA.Controllers
 {
+    
     public class HomeController : Controller
     {
-        private UserManager<ApplicationUser> userManager;
-        private RoleManager<IdentityRole> roleManager;
+        public UserManager<ApplicationUser> userManager;
+        public RoleManager<IdentityRole> roleManager;
         public HomeController()
         {
             userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new IdentityContext()));
@@ -73,14 +82,15 @@ namespace ProjeA.Controllers
         }
 
 
-
+        public string ka;
 
         public ActionResult Index2()
         {
             string id = User.Identity.GetUserId();
             var user = userManager.Users.FirstOrDefault(x => x.Id == id);
-
+            ViewBag.LayoutId = user.UserName;   
             ViewBag.mesaj = user.Name + " " + user.Surname;
+            ka= user.UserName;
             return View();
         }
         public ActionResult Index()
@@ -129,6 +139,9 @@ namespace ProjeA.Controllers
 
         public ActionResult PasswordUpdate()
         {
+            string id = User.Identity.GetUserId();
+            var user = userManager.Users.FirstOrDefault(x => x.Id == id);
+            ViewBag.LayoutId = user.UserName;
             return View();
         }
 
@@ -150,6 +163,9 @@ namespace ProjeA.Controllers
         {
             DataContext db = new DataContext();
             string username = User.Identity.GetUserName();
+            string id2 = User.Identity.GetUserId();
+            var user2 = userManager.Users.FirstOrDefault(x => x.Id == id2);
+            ViewBag.LayoutId = user2.UserName;
             //int num = int.Parse(id);
 
             var user = db.Informations.FirstOrDefault(x => x.Email == username);
@@ -160,7 +176,7 @@ namespace ProjeA.Controllers
             return View(user);
         }
         [HttpPost]
-        public ActionResult MyVisitEdit(Information model, string photo)
+        public ActionResult MyVisitEdit(Information model, HttpPostedFileBase photo, QRCodeModel qRCode)
         {
 
             DataContext db2 = new DataContext();
@@ -168,6 +184,8 @@ namespace ProjeA.Controllers
             string id = User.Identity.GetUserId();
             var username = userManager.Users.FirstOrDefault(x => x.Id == id);
             var user = db2.Informations.Where(x => x.Email == model.Email);
+            var kullanici2 = db2.Informations.FirstOrDefault(x => x.Email == username.UserName);
+
             /*-------------------*/
             var kullanici = new Information();
             if (user.Count() == 0)
@@ -185,52 +203,107 @@ namespace ProjeA.Controllers
                 kullanici.Instagram = model.Instagram;
                 kullanici.Facebook = model.Facebook;
                 kullanici.Tiktok = model.Tiktok;
+                /*----------------------*/
+
+                kullanici.WebSiteDurum = "~/LogoDepo/web.png";
+                
+                kullanici.NumberDurum = "~/LogoDepo/number.png";
+                kullanici.EmailDurum = "~/LogoDepo/email.png";
+                kullanici.AdressDurum = "~/LogoDepo/adress.png";
+                
+                kullanici.LinkedInDurum = "~/LogoDepo/linkedin.png";
+                kullanici.InstagramDurum = "~/LogoDepo/instagram.png";
+                kullanici.FacebookDurum = "~/LogoDepo/facebook.png";
+                kullanici.TiktokDurum = "~/LogoDepo/tiktok.png";
+                /*----------------------*/
                 if (Request.Files.Count != 0)
                 {
                     string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
                     string uzanti = Path.GetExtension(Request.Files[0].FileName);
 
-                    string yol = "~/LogoDepo/" + dosyaAdi;
+                    string yol = "~/LogoDepo/" + username.Email + ".png";
                     Request.Files[0].SaveAs(Server.MapPath(yol));
-                    kullanici.Photo = "/PdfDepo/" + username.UserName;
+                    kullanici.Photo = username.UserName + ".png";
+                    //photo.SaveAs(Server.MapPath(yol));  
                 }
+                string QRCodeText = "https://localhost:44301/Home/aaaa?email=" + model.Email;
+                QRCodeGenerator QrGenerator = new QRCodeGenerator();
+                QRCodeData QrCodeInfo = QrGenerator.CreateQrCode(QRCodeText, QRCodeGenerator.ECCLevel.Q);
+                QRCode QrCode = new QRCode(QrCodeInfo);
+                Bitmap QrBitmap = QrCode.GetGraphic(60);
+                byte[] BitmapArray = QrBitmap.BitmapToByteArray();
+                //string BitmapArray2 = model.Email;
+
+                string QrUri = string.Format("data:image/png;base64,{0}", Convert.ToBase64String(BitmapArray));
+                ViewBag.QrCodeUri = QrUri;
+
+                byte[] imageData = Convert.FromBase64String(QrUri.Split(',')[1]);
+                string fileName =  model.Email +"Qr"+".png";
+                string filePath = Path.Combine(Server.MapPath("~/LogoDepo"), fileName);
+                using (FileStream fs = new FileStream(filePath, FileMode.CreateNew))
+                {
+                    fs.Write(imageData, 0, imageData.Length);
+                }
+                kullanici.QrCode = fileName;
                 kullanici.User_Id = id;
                 db2.Informations.Add(kullanici);
                 db2.SaveChanges();
+                /*qr code*/
+                //using (MemoryStream ms =new MemoryStream())
+                //{
+                //    QRCode qRCode1=new QRCode();
+                //    string QRCodeText = "https://localhost:44301/Home/aaaa?email=" + model.Email;
+                //    QRCodeGenerator QrGenerator = new QRCodeGenerator();
+                //    QRCodeData QrCodeInfo = QrGenerator.CreateQrCode(QRCodeText, QRCodeGenerator.ECCLevel.Q);
+                //    using (Bitmap bitmap)
+                //    {
+
+                //    }
+                //}
+
+                
+
+                return View();
 
             }
+
             else
             {
-                kullanici.WebSite = model.WebSite;
-                kullanici.Name = model.Name;
-                kullanici.Surname = model.Surname;
-                kullanici.Number = model.Number;
-                kullanici.Email = model.Email;
-                kullanici.Adress = model.Adress;
-                kullanici.Iban = model.Iban;
-                kullanici.LinkedIn = model.LinkedIn;
-                kullanici.Company = model.Company;
-                kullanici.Title = model.Title;
-                kullanici.Instagram = model.Instagram;
-                kullanici.Facebook = model.Facebook;
-                kullanici.Tiktok = model.Tiktok;
+                kullanici2.WebSite = model.WebSite;
+                kullanici2.Name = model.Name;
+                kullanici2.Surname = model.Surname;
+                kullanici2.Number = model.Number;
+                kullanici2.Email = model.Email;
+                kullanici2.Adress = model.Adress;
+                kullanici2.Iban = model.Iban;
+                kullanici2.LinkedIn = model.LinkedIn;
+                kullanici2.Company = model.Company;
+                kullanici2.Title = model.Title;
+                kullanici2.Instagram = model.Instagram;
+                kullanici2.Facebook = model.Facebook;
+                kullanici2.Tiktok = model.Tiktok;
+                /*----------------------*/
+
+                
+                /*----------------------*/
                 if (Request.Files.Count != 0)
                 {
                     string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
                     string uzanti = Path.GetExtension(Request.Files[0].FileName);
 
                     
-                    if (dosyaAdi==null)
+                    if (dosyaAdi!=null)
                     {
-                        string yol = "~/LogoDepo/" + dosyaAdi;
+                        string yol = "~/LogoDepo/" + username.Email+".png";
                         Request.Files[0].SaveAs(Server.MapPath(yol));
-                        kullanici.Photo = "/PdfDepo/" + username.UserName;
+                        kullanici.Photo =  yol;
+                        //photo.SaveAs(Server.MapPath(yol));
                     }
                     
                     
                 }               
 
-                kullanici.User_Id = id;
+                kullanici2.User_Id = id;
                 db2.SaveChanges();
             }
 
@@ -243,9 +316,20 @@ namespace ProjeA.Controllers
         //}
 
 
-        public ActionResult aaaa()
+        public ActionResult aaaa(string email)
         {
-            return View();
+            DataContext db = new DataContext();
+            string username = User.Identity.GetUserName();
+            //int num = int.Parse(id);
+            
+            var user = db.Informations.FirstOrDefault(x => x.Email == username);
+            if (user == null)
+            {
+                return View();
+            }
+            string privatePageUrl = "https://localhost:44301/Home/aaaa?email=" + email;
+            ViewBag.Link = privatePageUrl;
+            return View(user);
         }
 
         public ActionResult Contact()
@@ -269,7 +353,7 @@ namespace ProjeA.Controllers
                 // Veri ekleme işlemleri
 
                 TempData["Success"] = "Mesaj başarıyla gönderildi.";
-                return RedirectToAction("Contact2");
+                return RedirectToAction("Contact");
             }
             return View();
         }
@@ -279,7 +363,8 @@ namespace ProjeA.Controllers
         {
             string id = User.Identity.GetUserId();
             var username = userManager.Users.FirstOrDefault(x => x.Id == id);
-
+            
+            ViewBag.LayoutId = username.UserName;
             return View(username);
         }
         [HttpPost]
@@ -305,4 +390,17 @@ namespace ProjeA.Controllers
             return View(model);
         }
     }
+
+    public static class BitmapExtension
+    {
+        public static byte[] BitmapToByteArray(this Bitmap bitmap)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bitmap.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+    }
+
 }

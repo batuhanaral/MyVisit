@@ -24,6 +24,7 @@ namespace ProjeA.Models
         public string Facebook { get; set; }
         public string Tiktok { get; set; }
         public string WebSite { get; set; }
+        public string QrCode { get; set; }
 
 
         public string NameDurum { get; set; }

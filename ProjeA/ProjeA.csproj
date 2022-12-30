@@ -83,6 +83,14 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QrCodeGenerator, Version=1.6.0.0, Culture=neutral, PublicKeyToken=6aa6bd7a159d47c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Net.Codecrete.QrCodeGenerator.2.0.3\lib\netstandard2.0\QrCodeGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -100,6 +108,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -3645,6 +3654,14 @@
     <Content Include="Content\js\core.min.js" />
     <Content Include="Content\js\script.js" />
     <Content Include="Global.asax" />
+    <Content Include="LogoDepo\adres.png" />
+    <Content Include="LogoDepo\email.png" />
+    <Content Include="LogoDepo\facebook.png" />
+    <Content Include="LogoDepo\instagram.png" />
+    <Content Include="LogoDepo\linkedin.png" />
+    <Content Include="LogoDepo\number.png" />
+    <Content Include="LogoDepo\tiktok.png" />
+    <Content Include="LogoDepo\web.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3673,6 +3690,7 @@
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Information.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\QRCodeModel.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -4046,6 +4064,8 @@
     <Content Include="Views\Admin\Answer.cshtml" />
     <Content Include="Views\Admin\Message2.cshtml" />
     <Content Include="Views\Admin\Answer2.cshtml" />
+    <Content Include="Views\Admin\RegisterAdmin.cshtml" />
+    <Content Include="Views\Admin\YoneticiGiris.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4055,7 +4075,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="LogoDepo\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.5\plugins\filterizr\ActiveFilter.d.ts" />

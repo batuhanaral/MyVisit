@@ -4,50 +4,33 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+<div class="wrapper">
 
+    <div class="content-wrapper">
 
-            <div class="row">
-
-                <section class="section section-sm section-last bg-default text-left" id="contacts">
-                    <div class="container">
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
-                            <div class="form">
-                                <h3>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</h3>
-                                
-
-                                <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                                    <div class="row row-14 gutters-14">
-
-                                        <div class="col-md-4">
-                                            <div class="form-wrap">
-                                                <input class="form-input" id="contact-email-2" type="email" name="@ViewBag.Email">
-                                                <label class="form-label" for="contact-email-2">E-mail</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-wrap">
-                                                <label class="form-label" for="contact-message-2">Message</label>
-                                                <textarea class="form-input textarea-lg" id="contact-message-2" name="message"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="button button-primary button-pipaluk" type="submit">Gönder</button>
-                                </form>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Quick Example</h3>
                             </div>
+                            @using (Html.BeginForm())
+                            {
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>@ViewBag.Email</label>
+                                        <textarea name="message" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Gönder</button>
+                                </div>
 
-                        }
+                            }
+                        </div>
                     </div>
-                </section>
-
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>

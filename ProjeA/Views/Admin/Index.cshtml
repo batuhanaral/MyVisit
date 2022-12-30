@@ -53,13 +53,8 @@
                                     @item.UserName
                                 </td>
 
-                                @if (item.MembershipStatus == true)
-                                {
-
-                                    <td class="btn btn-success">
-                                        @item.MembershipStatus
-                                    </td>
-                                } 
+                               
+                                <td>@Html.ActionLink("Sil", "AdminRemove", "Admin", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
 
 
                             </tr>
